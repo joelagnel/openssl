@@ -31,6 +31,8 @@
 #include <openssl/evp.h>
 #include <openssl/bn.h>
 
+#define OPENSSL_CRYPTODEF_HASH_NO_ONESHOT 1
+
 #if (defined(__unix__) || defined(unix)) && !defined(USG) && \
 	(defined(OpenBSD) || defined(__FreeBSD__))
 #include <sys/param.h>
@@ -720,6 +722,7 @@ static int cryptodev_digest_update(EVP_MD_CTX *ctx, const void *data,
 		return (0);
 	}
 
+#ifndef OPENSSL_CRYPTODEF_HASH_NO_ONESHOT
 	if (!(ctx->flags & EVP_MD_CTX_FLAG_ONESHOT)) {
 		/* if application doesn't support one buffer */
 		state->mac_data = OPENSSL_realloc(state->mac_data, state->mac_len + count);
@@ -734,6 +737,7 @@ static int cryptodev_digest_update(EVP_MD_CTX *ctx, const void *data,
 	
 		return (1);
 	}
+#endif
 
 	memset(&cryp, 0, sizeof(cryp));
 
@@ -764,6 +768,7 @@ static int cryptodev_digest_final(EVP_MD_CTX *ctx, unsigned char *md)
 		return(0);
 	}
 
+#ifndef OPENSSL_CRYPTODEF_HASH_NO_ONESHOT
 	if (! (ctx->flags & EVP_MD_CTX_FLAG_ONESHOT) ) {
 		/* if application doesn't support one buffer */
 		memset(&cryp, 0, sizeof(cryp));
@@ -780,7 +785,7 @@ static int cryptodev_digest_final(EVP_MD_CTX *ctx, unsigned char *md)
 
 		return 1;
 	}
-
+#endif
 	memcpy(md, state->digest_res, ctx->digest->md_size);
 
 	return (ret);
