@@ -170,6 +170,7 @@ static struct {
 #endif
 	{ CRYPTO_MD5,			NID_md5,		16},
 	{ CRYPTO_SHA1,			NID_sha1,		20},
+	{ CRYPTO_SHA2_224,		NID_sha224,		28},
 	{ CRYPTO_SHA2_256,		NID_sha256,		32},
 	{ CRYPTO_SHA2_384,		NID_sha384,		48},
 	{ CRYPTO_SHA2_512,		NID_sha512,		64},
