@@ -13,8 +13,9 @@ SHLIB_MAJOR=1
 SHLIB_MINOR=0.0
 SHLIB_EXT=.so.$(SHLIB_MAJOR).$(SHLIB_MINOR)
 PLATFORM=android-armv7
-OPTIONS=enable-shared --prefix=/home/joel/data/repo/filesystems/angstrom-2013/usr/ --openssldir=/home/joel/data/repo/filesystems/angstrom-2013/usr/lib/ssl/ no-ec_nistp_64_gcc_128 no-gmp no-jpake no-krb5 no-md2 no-rc5 no-rfc3779 no-sctp no-store no-zlib no-zlib-dynamic no-static-engine
-CONFIGURE_ARGS=shared --prefix=/home/joel/data/repo/filesystems/angstrom-2013/usr/ --openssldir=/home/joel/data/repo/filesystems/angstrom-2013/usr/lib/ssl/ android-armv7
+OPTIONS=enable-shared --prefix=/media/joel/Angstrom-Cloud9-/usr/ --openssldir=/media/joel/Angstrom-Cloud9-/usr/lib/ssl/ no-ec_nistp_64_gcc_128 no-gmp no-jpake no-krb5 no-md2 no-rc5 no-rfc3779 no-sctp no-store no-zlib no-zlib-dynamic no-static-engine
+CONFIGURE_ARGS=shared --prefix=/media/joel/Angstrom-Cloud9-/usr/ --openssldir=/media/joel/Angstrom-Cloud9-/usr/lib/ssl/ android-armv7
+
 SHLIB_TARGET=linux-shared
 
 # HERE indicates where this Makefile lives.  This can be used to indicate
@@ -25,11 +26,11 @@ HERE=.
 # INSTALL_PREFIX is for package builders so that they can configure
 # for, say, /usr/ and yet have everything installed to /tmp/somedir/usr/.
 # Normally it is left empty.
-INSTALL_PREFIX=
-INSTALLTOP=/home/joel/data/repo/filesystems/angstrom-2013/usr
+INSTALL_PREFIX=/media/2117b5bd-d74a-4328-aa8f-c4c8f00f3be9/
+INSTALLTOP=/usr/
 
 # Do not edit this manually. Use Configure --openssldir=DIR do change this!
-OPENSSLDIR=/home/joel/data/repo/filesystems/angstrom-2013/usr/lib/ssl
+OPENSSLDIR=/usr/lib/ssl
 
 # NO_IDEA - Define to build without the IDEA algorithm
 # NO_RC4  - Define to build without the RC4 algorithm
