@@ -224,7 +224,7 @@
 #endif
 
 #undef BUFSIZE
-#define BUFSIZE	((long)1024*8+1)
+#define BUFSIZE	((long)1024*512+1)
 int run=0;
 
 static int mr=0;
@@ -240,7 +240,7 @@ static int do_multi(int multi);
 #endif
 
 #define ALGOR_NUM	30
-#define SIZE_NUM	5
+#define SIZE_NUM	9
 #define RSA_NUM		4
 #define DSA_NUM		3
 
@@ -256,7 +256,7 @@ static const char *names[ALGOR_NUM]={
   "evp","sha256","sha512","whirlpool",
   "aes-128 ige","aes-192 ige","aes-256 ige","ghash" };
 static double results[ALGOR_NUM][SIZE_NUM];
-static int lengths[SIZE_NUM]={16,64,256,1024,8*1024};
+static int lengths[SIZE_NUM]={16,64,256,1024,8*1024,32*1024, 64*1024, 128*1024, 256*1024};
 #ifndef OPENSSL_NO_RSA
 static double rsa_results[RSA_NUM][2];
 #endif
