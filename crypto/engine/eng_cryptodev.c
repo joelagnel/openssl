@@ -32,8 +32,6 @@
 #include <openssl/evp.h>
 #include <openssl/bn.h>
 
-#define OPENSSL_CRYPTODEF_HASH_NO_ONESHOT 1
-
 #if (defined(__unix__) || defined(unix)) && !defined(USG) && \
 	(defined(OpenBSD) || defined(__FreeBSD__))
 #include <sys/param.h>
